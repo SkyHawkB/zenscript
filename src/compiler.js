@@ -80,6 +80,7 @@ const compile = (() => {
 })()
 
 if (process.argv.length != 3) {
+   console.log(process.argv)
    console.log('Please specify source file')
 } else {
    compile(process.argv[2], true)
