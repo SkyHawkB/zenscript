@@ -13,9 +13,7 @@ const eval_file = (() => {
             return console.log(err)
          }
 
-         /* jshint evil:true */
          console.log(eval(data))
-         /* jshint evil:false */
       })
    }
 })()
@@ -25,6 +23,3 @@ if (process.argv.length != 3) {
 }
 
 eval_file(process.argv[2])
-
-
-

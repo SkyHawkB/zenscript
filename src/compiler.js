@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const compile = (() => {
    "use strict"
 
@@ -17,7 +19,7 @@ const compile = (() => {
       })
    }
 
-   return (source) => {
+   return (source, write) => {
       if (path.extname(source) !== '.zs') {
          return console.log('filename: "' + source + '" does not have .zs extension')
       }
@@ -62,13 +64,17 @@ const compile = (() => {
          // Generate Target
          const write_start = new Date().getTime()
          const generate = new Generate(true)
-         fs.writeFile(dest, generate.pretty(ast.value), (err) => {
-            if (err) {
-               return console.log(err)
-            }
-            const write_end = new Date().getTime()
-            console.log('write time: ' + (write_end - write_start) + 'ms')
-         })
+         if (write) {
+            fs.writeFile(dest, generate.pretty(ast.value), (err) => {
+               if (err) {
+                  return console.log(err)
+               }
+               const write_end = new Date().getTime()
+               console.log('write time: ' + (write_end - write_start) + 'ms')
+            })
+         } else {
+           console.log(eval(generate.pretty(ast.value)))
+         }
       })
    }
 })()
@@ -76,5 +82,7 @@ const compile = (() => {
 if (process.argv.length != 3) {
    console.log('Please specify source file')
 } else {
-   compile(process.argv[2])
+   compile(process.argv[2], true)
 }
+
+module.exports = compile;
