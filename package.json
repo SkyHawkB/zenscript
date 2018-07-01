@@ -1,31 +1,27 @@
 {
   "name": "zenscript",
-  "version": "0.0.0",
-  "description": "ZenScript Compiler",
+  "version": "1.0.0",
+  "description": "ZenScript CLI",
   "main": "src/compiler.js",
-  "scripts": {
-    "test": "make test"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/keean/zenscript.git"
   },
-  "keywords": [
-    "npm",
-    "trait",
-    "compiler"
-  ],
-  "author": "Keean Schupke <keean.schupke@googlemail.com>",
+  "keywords": [],
+  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/keean/zenscript/issues"
   },
   "homepage": "https://github.com/keean/zenscript#readme",
   "dependencies": {
+    "parsimmon": "^1.11.1",
+    "path": "^0.12.7",
+    "readline": "^1.3.0"
   },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.0.2",
-    "parsimmon": "^1.0.0"
+  "bin": {
+    "zenc": "",
+    "zen": ""
   }
 }

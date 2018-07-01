@@ -41,7 +41,7 @@ const compile = (() => {
 
          if (!ast.status) {
             return console.log(JSON.stringify(ast))
-         }  
+         }
 
          //console.log(JSON.stringify(ast))
 
@@ -78,4 +78,3 @@ if (process.argv.length != 3) {
 } else {
    compile(process.argv[2])
 }
-
